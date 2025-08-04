@@ -44,6 +44,8 @@ pip freeze > requirements.txt
 
 * 3. Run the app:
 ```
+uvicorn FileName:ObjectName --reload
+uvicorn app2:application --reload
 uvicorn app:app --reload
 ```
 * 4. Access the API docs:
