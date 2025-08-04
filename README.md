@@ -24,15 +24,20 @@ The model expects a JSON input with the following features:
 
 ## How to Run:
 * 1. Create a virtual environment:
-```python -m venv apivenv
-Windows: apivenv\Scripts\activate
+```
+python -m venv apivenv
+On Windows: apivenv\Scripts\activate
 ```
 
 * 2. Install dependencies:
+```
 pip install fastapi uvicorn scikit-learn pandas numpy
+```
 
 * 3. Run the app:
+```
 uvicorn app:app --reload
+```
 
 
 
