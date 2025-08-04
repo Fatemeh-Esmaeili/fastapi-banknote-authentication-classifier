@@ -40,10 +40,13 @@ uvicorn app:app --reload
 ```
 
 ## API Endpoints
-Method	Endpoint	Description
-GET	/	Welcome message
-GET	/{name}	Personalized message
-POST	/predict	Predict with banknote features
-PUT	/update_predict	Update banknote features and predict
+
+| Method | Endpoint           | Description                         |
+|--------|--------------------|-------------------------------------|
+| GET    | `/`                | Welcome message                     |
+| GET    | `/{name}`          | Personalized message                |
+| POST   | `/predict`         | Predict with banknote features      |
+| PUT    | `/update_predict`  | Update banknote features and predict|
+
 
 
