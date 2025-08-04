@@ -33,6 +33,10 @@ On Windows: apivenv\Scripts\activate
 ```
 pip install fastapi uvicorn scikit-learn pandas numpy
 ```
+or using the requirements.txt file
+```
+pip install -r requirements.txt
+```
 
 * 3. Run the app:
 ```
