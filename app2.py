@@ -12,25 +12,37 @@ from BankNotes import BankNote
 import numpy as np
 import pickle
 import pandas as pd
-# 2. Create the app object
-app = FastAPI()
+
+
+from pydantic import BaseModel
+# 2. Class which describes Bank Notes measurements
+class BankNote(BaseModel):
+    variance: float
+    skewness: float
+    curtosis: float
+    entropy: float
+
+
+# 3. Create the app object
+
+application = FastAPI()
 pickle_in = open("bankNoteClassifier.pkl","rb")
 bankNoteClassifier=pickle.load(pickle_in)
 
-# 3. Index route, opens automatically on http://127.0.0.1:8000
-@app.get('/')
+# 4. Index route, opens automatically on http://127.0.0.1:8000
+@application.get('/')
 def index():
     return {'message': 'Hello and Welcome to This FastAPI prototype!'}
 
-# 4. Route with a single parameter, returns the parameter within a message
+# 5. Route with a single parameter, returns the parameter within a message
 #    Located at: http://127.0.0.1:8000/AnyNameHere
-@app.get('/{name}')
+@application.get('/{name}')
 def get_name(name: str):
     return {'I am happy to see you here': f'{name}'}
 
-# 3. Expose the prediction functionality, make a prediction from the passed
+# 6. Expose the prediction functionality, make a prediction from the passed
 #    JSON data and return the predicted Bank Note with the confidence
-@app.post('/predict')
+@application.post('/predict')
 def predict_banknote(data:BankNote):
     data = data.dict()
     variance=data['variance']
@@ -47,8 +59,8 @@ def predict_banknote(data:BankNote):
         'prediction': prediction
     }
 
-# 5. PUT route to update banknote features and get a new prediction
-@app.put('/update_predict')
+# 7. PUT route to update banknote features and get a new prediction
+@application.put('/update_predict')
 def update_predict(data: BankNote):
     data = data.dict()
     variance = data['variance']
@@ -68,11 +80,11 @@ def update_predict(data: BankNote):
         'prediction': prediction
     }
 
-# 6. Run the API with uvicorn
+# 8. Run the API with uvicorn
 #    Will run on http://127.0.0.1:8000
 if __name__ == '__main__':
-    uvicorn.run(app, host='127.0.0.1', port=8000)
+    uvicorn.run(application, host='127.0.0.1', port=9000)
 
-# uvicorn app:app --reload
+# uvicorn FileName:ObjectName --reload
 
-#uvicorn app:app --reload
+# uvicorn app2:application --reload
