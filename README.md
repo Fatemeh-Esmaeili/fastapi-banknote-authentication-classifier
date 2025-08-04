@@ -38,6 +38,11 @@ pip install fastapi uvicorn scikit-learn pandas numpy
 ```
 uvicorn app:app --reload
 ```
+* 4.Access the API docs:
+
+Swagger UI: http://127.0.0.1:8000/docs
+
+Redoc: http://127.0.0.1:8000/redoc
 
 ## API Endpoints
 
