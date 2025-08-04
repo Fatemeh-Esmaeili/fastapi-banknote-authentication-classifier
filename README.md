@@ -37,6 +37,10 @@ or using the requirements.txt file
 ```
 pip install -r requirements.txt
 ```
+This file is generated with the following code: 
+```
+pip freeze > requirements.txt
+```
 
 * 3. Run the app:
 ```
